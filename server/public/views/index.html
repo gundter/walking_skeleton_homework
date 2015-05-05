@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>MEAN Stack</title>
+
+        <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/stylesheet.css">
+
+        <script src="/vendor/jquery/dist/jquery.min.js" type="text/javascript"></script>
+        <script src="/vendor/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="/vendor/angular/angular.min.js" type="text/javascript"></script>
+        <script src="/assets/scripts/app.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="jumbotron col-md-12 text-center">
+            <h1>Add your KITTEH!!!</h1>
+        </div>
+        <div class="container text-center" ng-controller="IndexController">
+            <form class="well" novalidate>
+                <p ng-show="cat.name">Your new cats name is: {{cat.name}}</p>
+                <p ng-hide="cat.name">Enter your new cat's name!</p>
+                Name: <input type="text" ng-model="cat.name"/>
+                <input class="btn btn-success" type="submit" ng-click="add(cat)" value="Save"/>
+            </form>
+        </div>
+        <div class="container text-center displayCats" ng-controller="IndexController">
+            <img src="http://placekitten.com/720/300" class="center-block"/>
+            <h2>Your Cats</h2>
+            <ul class="well">
+                <p ng-repeat="cat in cats">{{cat.name}}</p>
+            </ul>
+        </div>
+    </body>
+</html>
