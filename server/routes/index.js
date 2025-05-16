@@ -36,7 +36,13 @@ router.get('/cats', limiter, function(request, response, next){
 router.get("/*", limiter, function (req, res, next){
     console.log("Here is a console log");
     var file = req.params[0] || 'views/index.html';
-    res.sendFile(path.join(__dirname, '../public', file));
+    var publicDir = path.join(__dirname, '../public');
+    var resolvedPath = path.resolve(publicDir, file);
+    if (!resolvedPath.startsWith(publicDir)) {
+        res.status(403).send('Access denied');
+        return;
+    }
+    res.sendFile(resolvedPath);
     //next();
 });
 
