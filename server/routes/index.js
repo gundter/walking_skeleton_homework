@@ -24,7 +24,7 @@ router.post('/add', function(request, response, next){
     });
 });
 
-router.get('/cats', function(request, response, next){
+router.get('/cats', limiter, function(request, response, next){
     return Cat.find({}).exec(function(err, cats){
         if(err) throw new Error(err);
         response.send(JSON.stringify(cats));
