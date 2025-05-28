@@ -20,7 +20,7 @@
     "grunt-contrib-uglify": "^5.2.2",
     "jquery": "^3.7.1",
     "jQuery": "^1.7.4",
-    "mongoose": "^8.14.3",
+    "mongoose": "^8.15.0",
     "path": "^0.11.14"
   }
 }
